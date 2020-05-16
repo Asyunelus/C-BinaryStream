@@ -50,6 +50,15 @@ void bofstream::writeString(std::string value)
 	os.write(&value[0], value.length());
 }
 
+void bofstream::writeWideString(std::wstring wvalue)
+{
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+	std::string value = converter.to_bytes(wvalue);
+	writeInt32(value.length());
+	os.write(&value[0], value.length());
+	os.flush();
+}
+
 void bofstream::flush()
 {
 	os.flush();

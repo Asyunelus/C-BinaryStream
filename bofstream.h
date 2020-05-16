@@ -15,8 +15,8 @@ public:
 	void writeSingle(float value);
 	void writeDouble(double value);
 	void writeString(std::string value);
-	
+	void writeWideString(std::wstring value);
+
 	void flush();
 	void close();
 };
-

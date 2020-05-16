@@ -63,6 +63,17 @@ std::string bifstream::readString()
 	return result;
 }
 
+std::wstring bifstream::readWideString()
+{
+	int Length = readInt32();
+	std::string result;
+	result.resize(Length);
+	is.read(&result[0], Length);
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+	std::wstring wresult = converter.from_bytes(result);
+	return wresult;
+}
+
 void bifstream::close()
 {
 	is.close();

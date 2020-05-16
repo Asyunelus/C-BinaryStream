@@ -15,6 +15,7 @@ public:
 	float readSingle();
 	double readDouble();
 	std::string readString();
+	std::wstring readWideString();
 
 	void close();
 };
