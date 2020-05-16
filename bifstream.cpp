@@ -15,6 +15,7 @@ bifstream::~bifstream()
 
 void bifstream::open(std::string filePath)
 {
+	is.imbue(std::locale(std::locale::empty(), new std::codecvt_utf8<wchar_t, 0x10ffff, std::generate_header>));
 	is.open(filePath, std::ios::binary);
 }
 
@@ -56,9 +57,9 @@ double bifstream::readDouble()
 std::string bifstream::readString()
 {
 	int Length = readInt32();
-
-	char* result = new char[Length];
-	is.read(result, Length);
+	std::string result;
+	result.resize(Length);
+	is.read(&result[0], Length);
 	return result;
 }
 

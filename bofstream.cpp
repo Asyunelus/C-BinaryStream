@@ -15,6 +15,7 @@ bofstream::~bofstream()
 
 void bofstream::open(std::string filePath)
 {
+	os.imbue(std::locale(std::locale::empty(), new std::codecvt_utf8<wchar_t, 0x10ffff, std::generate_header>));
 	os.open(filePath, std::ios::binary);
 }
 
@@ -46,7 +47,7 @@ void bofstream::writeDouble(double value)
 void bofstream::writeString(std::string value)
 {
 	writeInt32(value.length());
-	os.write(value.c_str(), value.length());
+	os.write(&value[0], value.length());
 }
 
 void bofstream::flush()
