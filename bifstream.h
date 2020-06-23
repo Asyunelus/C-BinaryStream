@@ -1,4 +1,8 @@
 #pragma once
+/* bifstream (binary input stream)
+ * Made By Asyunelus (https://github.com/Asyunelus)
+ * ifstream을 이용, binary 형태의 로딩을 편하게 하는 클래스
+ */
 class bifstream
 {
 	std::ifstream is;
@@ -16,6 +20,8 @@ public:
 	double readDouble();
 	std::string readString();
 	std::wstring readWideString();
+
+	bool is_open();
 
 	void close();
 };

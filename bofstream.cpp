@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "bofstream.h"
 
 bofstream::bofstream()
 {
@@ -57,6 +58,11 @@ void bofstream::writeWideString(std::wstring wvalue)
 	writeInt32(value.length());
 	os.write(&value[0], value.length());
 	os.flush();
+}
+
+bool bofstream::is_open()
+{
+	return os.is_open();
 }
 
 void bofstream::flush()

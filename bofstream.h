@@ -1,4 +1,9 @@
 #pragma once
+/* bofstream (binary output stream)
+ * Made By Asyunelus (https://github.com/Asyunelus)
+ * ofstream을 이용, binary 형태의 저장을 편하게 하는 클래스
+ */
+
 class bofstream
 {
 	std::ofstream os;
@@ -16,6 +21,8 @@ public:
 	void writeDouble(double value);
 	void writeString(std::string value);
 	void writeWideString(std::wstring value);
+
+	bool is_open();
 
 	void flush();
 	void close();

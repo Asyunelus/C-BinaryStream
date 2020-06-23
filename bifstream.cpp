@@ -74,6 +74,11 @@ std::wstring bifstream::readWideString()
 	return wresult;
 }
 
+bool bifstream::is_open()
+{
+	return is.is_open();
+}
+
 void bifstream::close()
 {
 	is.close();
